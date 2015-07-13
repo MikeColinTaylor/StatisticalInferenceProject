@@ -5,18 +5,23 @@ date: "13 July 2015"
 output: pdf_document
 ---
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+A simulation exercise investigating the exponential distribution
+========
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+```{r simulate the samples}
 
-```{r}
-summary(cars)
+#First set the random number seed to make the results reproducible
+set.seed(11)
+
+#create a variable to store the results in
+means = numeric()
+
+#run 1000 simulations
+for (i in 1:1000) {
+  #store the mean of 40 exponentials to the means variable, using the rate 0.2
+  means[i] <- mean(rexp(40, 0.2))
+}
+
 ```
 
-You can also embed plots, for example:
 
-```{r, echo=FALSE}
-plot(cars)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
