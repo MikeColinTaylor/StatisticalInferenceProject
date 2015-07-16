@@ -8,6 +8,8 @@ output: pdf_document
 A simulation exercise investigating the exponential distribution
 ========
 
+In this analysis multiple random samples will be taken from an exponential distribution. The mean of each of these samples will be stored in a new variable, and the mean and variance of this variable will be compared to the original population (the exponential random variable).
+
 ```{r simulate the samples}
 
 #First set the random number seed to make the results reproducible
@@ -23,5 +25,18 @@ for (i in 1:1000) {
 }
 
 ```
+
+
+
+```{r histogram of sample means, fig.width = 8}
+library(ggplot2)
+
+ggplot(data.frame(means), aes(x = means)) + 
+  geom_histogram(fill = "grey40", binwidth = 0.25, colour = "black") + 
+  scale_x_discrete(limits = 1:9) + 
+  geom_vline(xintercept = mean(means), linetype = "dashed", color = "white")
+
+```
+
 
 
