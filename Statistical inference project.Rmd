@@ -30,11 +30,9 @@ for (i in 1:1000) {
 ```
 
 
-
-
 ### Sample Mean versus Theoretical Mean
 
-```{r comparing means, fig.width = 2, fig.height = 2}
+```{r comparing means, fig.width = 3, fig.height = 3}
 library(ggplot2)
 ggplot(data.frame(Mean = c(5, mean(means)), Type = c("theoretical", "simulated")), 
        aes(x = Type, y = Mean)) + 
@@ -50,7 +48,7 @@ The figure above shows the mean of the distribution calculated from the simulati
 
 ### Sample Variance versus Theoretical Variance
 
-```{r comparing variance, fig.width = 2, fig.height = 2}
+```{r comparing variance, fig.width = 3, fig.height = 3}
 ggplot(data.frame(Variance = c(5, sd(means) ** 2), Type = c("theoretical", "simulated")), 
        aes(x = Type, y = Variance)) + 
   geom_bar(fill = "grey40", colour = "black", stat = "identity") + 
